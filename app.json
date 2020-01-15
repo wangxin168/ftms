@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/kpi/kpi",
+    "pages/rebate/rebate",
+    "pages/personal/personal"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "##A4A2A3",
+    "selectedColor": "#E50020",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "img/no_news.png",
+      "selectedIconPath": "img/yes_news.png",
+      "text": "消息发布"
+    }, {
+      "pagePath": "pages/kpi/kpi",
+      "iconPath": "img/no_kpi.png",
+      "selectedIconPath": "img/yes_kpi.png",
+      "text": "kpi"
+    }, {
+      "pagePath": "pages/rebate/rebate",
+      "iconPath": "img/no_hexiao.png",
+      "selectedIconPath": "img/yes_hexiao.png",
+      "text": "核销返利"
+    }, {
+      "pagePath": "pages/personal/personal",
+      "iconPath": "img/no_my.png",
+      "selectedIconPath": "img/yes_my.png",
+      "text": "个人中心"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
