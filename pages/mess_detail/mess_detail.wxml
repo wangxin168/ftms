@@ -1,0 +1,25 @@
+<!--pages/mess_detail/mess_detail.wxml-->
+<!-- <text>pages/mess_detail/mess_detail.wxml</text> -->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="contents">
+  <template is="wxParse" data="{{wxParseData:contents.nodes}}" /> 
+  
+  <view class="con_bott">
+    <input type="text" placeholder="我要提问（限100字）"></input>
+    <button>发送</button>
+  </view>
+</view>
+<view class="xian"></view>
+<view class="con_tit" wx:if="{{label.length!=0}}">
+  <image src="../../img/wenda.png"></image>
+  <text>快速问答</text>
+</view>
+<view class="list_ul" wx:if="{{label.length!=0}}">
+  <view class="list_li" wx:for="{{label}}" wx:key="index">
+    {{item}}
+  </view>
+</view>
+<view class="con_tit">
+  <image src="../../img/wenda-3.png"></image>
+  <text>Q&A</text>
+</view>

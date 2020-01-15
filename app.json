@@ -3,7 +3,10 @@
     "pages/index/index",
     "pages/kpi/kpi",
     "pages/rebate/rebate",
-    "pages/personal/personal"
+    "pages/personal/personal",
+    "pages/more_news/more_news",
+    "pages/news_detail/news_detail",
+    "pages/mess_detail/mess_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

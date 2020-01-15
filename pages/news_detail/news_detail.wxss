@@ -1,0 +1,23 @@
+/* pages/news_detail/news_detail.wxss */
+.news_detail {
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.title_de {
+  width: 100%;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(31, 31, 31, 1);
+  margin-top: 33rpx;
+}
+
+.contents {
+  margin-top: 56rpx;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(53, 53, 53, 1);
+}

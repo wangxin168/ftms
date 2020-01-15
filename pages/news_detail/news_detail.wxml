@@ -1,0 +1,6 @@
+<!--pages/news_detail/news_detail.wxml-->
+<!-- <text>pages/news_detail/news_detail.wxml</text> -->
+<view class="news_detail">
+  <view class="title_de">{{detail.title}}</view>
+  <view class="contents">{{detail.contents}}</view>
+</view>

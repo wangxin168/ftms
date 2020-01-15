@@ -1,0 +1,11 @@
+<!--pages/more_news/more_news.wxml-->
+<!-- <text>pages/more_news/more_news.wxml</text> -->
+<view class="all">
+  <view wx:for="{{adv}}" wx:key="index" bindtap="news_detail" data-gg_id="{{item.gg_id}}">
+    <view class="top_con">
+      <text>{{item.title}}</text>
+      <text>{{item.fabu_time}}</text>
+    </view>
+    <view class="bott_con">{{item.contents}}</view>
+  </view>
+</view>

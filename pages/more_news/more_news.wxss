@@ -1,0 +1,54 @@
+/* pages/more_news/more_news.wxss */
+page {
+  background: rgba(247, 247, 247, 1);
+}
+
+.all {
+  width: 100%;
+  margin-top: 20rpx;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  background: white;
+}
+
+.all>view {
+  width: 100%;
+  padding: 27rpx 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.all>view .top_con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.all>view .top_con text:nth-of-type(1) {
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(43, 43, 43, 1);
+  width: 530rpx;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+}
+
+.all>view .top_con text:nth-of-type(2) {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(180, 180, 180, 1);
+}
+
+.bott_con {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(180, 180, 180, 1);
+  margin-top: 18rpx;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+}

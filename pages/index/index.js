@@ -17,14 +17,17 @@ Page({
     jin_con:'近1月',
     cate:[],
     message:[],
-    cate_id:''
+    cate_id:'',
+    currentTab:0,
+    account_id:wx.getStorageSync('account_id'),
+    status:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -32,6 +35,15 @@ Page({
    */
   onReady: function () {
 
+  },
+  cate_check:function(e){
+    var that=this;
+    // console.log(e)
+    that.setData({
+      currentTab:e.currentTarget.dataset.index,
+      cate_id:e.currentTarget.dataset.cate_id
+    })
+    that.xuanran();
   },
   check_list:function(){
     var that=this;
@@ -121,22 +133,90 @@ Page({
 
     that.setData({
       date: DATE,
-    });
-    wx.setStorageSync('account_id', 1);
+      account_id: wx.getStorageSync('account_id')
+    })
     that.xuanran();
+  },
+  onGotUserInfo: function (event) {
+    var that = this;
+    console.log(event)
+    let allDatas = event.detail.userInfo
+    wx.setStorageSync('userImg', allDatas.avatarUrl);
+    wx.setStorageSync('userNames', allDatas.nickName);
+    wx.login({
+      success: res => {
+        // 授权
+        wx.request({
+          url: getApp().globalData.url + '/api.php/home/api/get_openid_api',
+          data: {
+            code: res.code
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success(res) {
+            console.log(res)
+            if (res.data.code == 1) {
+              wx.setStorageSync('openids', res.data.data.openid);
+              wx.setStorageSync('account_id', res.data.data.account_id);
+              that.setData({
+                openids: wx.getStorageSync('openids')
+                
+              })
+              // 成功之后传头像昵称给后台
+              wx.request({
+                url: getApp().globalData.url + '/api.php/home/api/save_info',
+                data: {
+                  account_id: res.data.data.account_id,
+                  avatar: allDatas.avatarUrl,
+                  nickname: allDatas.nickName
+                },
+                header: {
+                  'content-type': 'application/json' // 默认值
+                },
+                success(res) {
+                  console.log(res)
+                  that.setData({
+                    status:2
+                  })
+                  that.onShow()
+                }
+              })
+            }else if(res.data.code == 3){
+              that.setData({
+                status:3
+              })
+            }else if(res.data.code == 4){
+              that.setData({
+                status:3
+              })
+            }
+          }
+        })
+      }
+    })
   },
   xuanran(){
     var that=this;
+    console.log(that.data.account_id)
+    if(that.data.account_id!=''){
+      that.setData({
+        status:2
+      })
+    }
     wx.request({
       url: getApp().globalData.url + '/api.php/home/index/shouye',
       data: {
         account_id: wx.getStorageSync('account_id'),
         jin_time:that.data.jin_time,
-        cate_id:that.data.cate_id
+        cate_id:that.data.cate_id,
+        start_time:that.data.date1,
+        end_time:that.data.date2
         // activity_id: that.data.activity_id
       },
       success: res => {
         console.log(res)
+        // console.log(that.data.account_id)
         if (res.data.code == 1) {
           that.setData({
             adv: res.data.data.adv,
@@ -146,6 +226,18 @@ Page({
         }
       }
     });
+  },
+  more:function(){
+    var that=this;
+    wx.navigateTo({
+      url: '../more_news/more_news'
+    })
+  },
+  message_detail:function(e){
+    var that=this;
+    wx.navigateTo({
+      url: '../mess_detail/mess_detail?message_id='+e.currentTarget.dataset.message_id
+    })
   },
   /**
    * 生命周期函数--监听页面隐藏
