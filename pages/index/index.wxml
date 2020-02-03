@@ -81,7 +81,7 @@
 	</view>
 </view>
 
-<view class="cate_list" wx:if="{{account_id!=''}}">
+<view class="cate_list">
 	<view class="cate_box">
 		<view wx:for="{{cate}}" wx:key="index" data-cate_id="{{item.cate_id}}" bindtap="cate_click" class="cate_name {{currentTab==index ? 'on' : ''}}" bindtap="cate_check" data-index="{{index}}">
 			{{item.cate_name}}
@@ -102,7 +102,7 @@
       <view>{{len.fabu_time}}</view>
     </view>
     <view class="tit_list" wx:if="{{len.option!=''}}">
-      <view wx:for="{{len.option}}" data-message_id="{{item.message_id}}" wx:key="ind">
+      <view wx:for="{{len.option}}" data-message_id="{{item.message_id}}" wx:key="ind" catchtap="label_click" data-label_id="{{item.label_id}}">
         {{item.label}}
       </view>
     </view>

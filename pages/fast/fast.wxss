@@ -1,0 +1,39 @@
+/* pages/fast/fast.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+.box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.box image {
+  position: absolute;
+  width: 100%;
+  height: 381rpx;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  padding: 0 31rpx;
+  box-sizing: border-box;
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(43, 43, 43, 1);
+  margin-top: 64rpx;
+}
+
+.contents {
+  padding: 0 31rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(106, 106, 106, 1);
+  margin-top: 37rpx;
+}

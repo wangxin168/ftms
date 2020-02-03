@@ -1,10 +1,11 @@
-// pages/personal/personal.js
+// pages/fast/fast.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    label_id:'',
     detail:{}
   },
 
@@ -12,7 +13,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options)
+    var that=this;
+    that.setData({
+      label_id:options.label_id
+    })
   },
 
   /**
@@ -28,9 +33,9 @@ Page({
   onShow: function () {
     var that=this;
     wx.request({
-      url: getApp().globalData.url + '/api.php/home/index/my_userinfo',
+      url: getApp().globalData.url + '/api.php/home/index/fast_detail',
       data: {
-        account_id:wx.getStorageSync('account_id'),
+        label_id:that.data.label_id
       },
       success: res => {
         console.log(res)
@@ -42,21 +47,7 @@ Page({
       }
     });
   },
-  huifu:function(){
-    wx.navigateTo({
-      url: '../huifu/huifu',
-    })
-  },
-  fanli:function(){
-    wx.navigateTo({
-      url: '../fanli/fanli',
-    })
-  },
-  know:function(){
-    wx.navigateTo({
-      url: '../know/know',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

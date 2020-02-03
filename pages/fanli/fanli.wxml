@@ -1,0 +1,20 @@
+<!--pages/fanli/fanli.wxml-->
+<!-- <text>pages/fanli/fanli.wxml</text> -->
+<view class="fanli_ul">
+  <view class="fanli_li">
+    <text>2019年第四季度返利</text>
+    <text>¥13140</text>
+  </view>
+  <view class="fanli_li">
+    <text>2019年第四季度返利</text>
+    <text>¥13140</text>
+  </view>
+  <view class="fanli_li">
+    <text>2019年第四季度返利</text>
+    <text>¥13140</text>
+  </view>
+  <view class="fanli_li">
+    <text>2019年第四季度返利</text>
+    <text>¥13140</text>
+  </view>
+</view>

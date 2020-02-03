@@ -117,6 +117,11 @@ Page({
     })
     that.xuanran();
   },
+  label_click:function(e){
+    wx.navigateTo({
+      url: '../fast/fast?label_id='+e.currentTarget.dataset.label_id,
+    })
+  },
   cate_click:function(e){
     var that=this;
     that.setData({

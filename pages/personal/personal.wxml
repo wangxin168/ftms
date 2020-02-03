@@ -1,2 +1,37 @@
 <!--pages/personal/personal.wxml-->
-<text>pages/personal/personal.wxml</text>
+<!-- <text>pages/personal/personal.wxml</text> -->
+<view>
+  <image src="../../img/back2.png" class="back"></image>
+  <view class="actor">
+    <image src="{{detail.avatar}}"></image>
+    <view class="act_right">
+      <view>{{detail.nickname}}</view>
+      <view>XXX店XXX专员</view>
+    </view>
+  </view>
+  <view class="white">
+    <view class="white_ul">
+      <view class="white_li" bindtap="huifu">
+        <view class="white_left">
+          <image src="../../img/xinxi.png"></image>
+          <text>我收到的回复</text>
+        </view>
+        <image src="../../img/fanhui.png" class="fanhui"></image>
+      </view>
+      <view class="white_li" bindtap="fanli">
+        <view class="white_left">
+          <image src="../../img/fanli.png"></image>
+          <text>我的返利</text>
+        </view>
+        <image src="../../img/fanhui.png" class="fanhui"></image>
+      </view>
+      <view class="white_li" bindtap="know">
+        <view class="white_left">
+          <image src="../../img/zhishi.png"></image>
+          <text>我的知识</text>
+        </view>
+        <image src="../../img/fanhui.png" class="fanhui"></image>
+      </view>
+    </view>
+  </view>
+</view>

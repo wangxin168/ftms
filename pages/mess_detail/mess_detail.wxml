@@ -3,10 +3,12 @@
 <import src="../../wxParse/wxParse.wxml" />
 <view class="contents">
   <template is="wxParse" data="{{wxParseData:contents.nodes}}" /> 
-  
+  <view class="image_list">
+    <image src="{{item}}" wx:for="{{images}}" mode="aspectFill" bindtap="imgYu" data-list="{{images}}" data-src="{{item}}"></image>
+  </view>
   <view class="con_bott">
-    <input type="text" placeholder="我要提问（限100字）"></input>
-    <button>发送</button>
+    <input type="text" placeholder="我要提问（限100字）" bindinput="qust" value="{{qust}}"></input>
+    <button bindtap="fasong">发送</button>
   </view>
 </view>
 <view class="xian"></view>
@@ -15,11 +17,25 @@
   <text>快速问答</text>
 </view>
 <view class="list_ul" wx:if="{{label.length!=0}}">
-  <view class="list_li" wx:for="{{label}}" wx:key="index">
-    {{item}}
+  <view class="list_li" wx:for="{{label}}" wx:key="index" bindtap="label_click" data-label_id="{{item.label_id}}">
+    {{item.title}}
   </view>
 </view>
-<view class="con_tit">
+<view class="con_tit" style="width:144rpx;" wx:if="{{wen_da!=''}}">
   <image src="../../img/wenda-3.png"></image>
   <text>Q&A</text>
 </view>
+<view class="quse_list" wx:if="{{wen_da!=''}}">
+  <view class="quse_li" wx:for="{{wen_da}}" wx:key="index">
+    <view class="li_top">
+      <text>{{item.question}}</text>
+      <view>
+        <image src="../../img/zan-4.png" wx:if="{{item.is_zan==0}}" bindtap="zan_click" data-question_id="{{item.question_id}}" data-type="1"></image>
+        <image src="../../img/zan-3.png" wx:if="{{item.is_zan==1}}" bindtap="zan_click" data-question_id="{{item.question_id}}" data-type="2"></image>
+        <text>{{item.zan_count}}</text>
+      </view>
+    </view>
+    <view class="li_bott">{{item.reply_content}}</view>
+  </view>
+</view>
+<!-- <web-view wx:if="{{links!=''}}" src="{{links}}"></web-view> -->

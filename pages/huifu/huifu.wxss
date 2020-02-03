@@ -1,0 +1,31 @@
+/* pages/huifu/huifu.wxss */
+page{
+  background: #F5F5F5;
+}
+.lst_ul {
+  width: 100%;
+  padding: 17rpx 32rpx 0;
+  box-sizing: border-box;
+  background: white;
+}
+
+.lst_ul .lst_li {
+  padding: 48rpx 0 32rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.lst_ul .lst_li .title {
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(43, 43, 43, 1);
+}
+
+.lst_ul .lst_li .reply {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(180, 180, 180, 1);
+  margin-top: 6rpx;
+}

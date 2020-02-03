@@ -1,0 +1,12 @@
+<!--pages/huifu/huifu.wxml-->
+<!-- <text>pages/huifu/huifu.wxml</text> -->
+<view class="lst_ul">
+  <view class="lst_li" wx:for="{{lst}}" wx:key="index">
+    <view class="title">
+      文章标题：{{item.title}}
+    </view>
+    <view class="reply">
+      回复内容：{{item.reply_content}}
+    </view>
+  </view>
+</view>

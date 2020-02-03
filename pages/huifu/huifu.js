@@ -1,11 +1,11 @@
-// pages/personal/personal.js
+// pages/huifu/huifu.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    detail:{}
+    lst:[]
   },
 
   /**
@@ -28,7 +28,7 @@ Page({
   onShow: function () {
     var that=this;
     wx.request({
-      url: getApp().globalData.url + '/api.php/home/index/my_userinfo',
+      url: getApp().globalData.url + '/api.php/home/index/my_huifu',
       data: {
         account_id:wx.getStorageSync('account_id'),
       },
@@ -36,27 +36,13 @@ Page({
         console.log(res)
         if (res.data.code == 1) {
           that.setData({
-            detail:res.data.data
+            lst:res.data.data.lst
           })
         }
       }
     });
   },
-  huifu:function(){
-    wx.navigateTo({
-      url: '../huifu/huifu',
-    })
-  },
-  fanli:function(){
-    wx.navigateTo({
-      url: '../fanli/fanli',
-    })
-  },
-  know:function(){
-    wx.navigateTo({
-      url: '../know/know',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

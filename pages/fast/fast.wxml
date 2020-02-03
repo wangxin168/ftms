@@ -1,0 +1,7 @@
+<!--pages/fast/fast.wxml-->
+<!-- <text>pages/fast/fast.wxml</text> -->
+<view class="box">
+	<image src="../../img/back.png"></image>
+	<view class="title">{{detail.title}}</view>
+	<view class="contents">{{detail.contents}}</view>
+</view>
