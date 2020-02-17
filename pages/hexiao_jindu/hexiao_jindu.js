@@ -1,54 +1,24 @@
-// pages/rebate/rebate.js
+// pages/hexiao_jindu/hexiao_jindu.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    content:'租赁返利',
-    select:false,
-    statusBarHeight:'',
-    hexiao:[]
+    lst_id:'',
+    pro:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this;
+    that.setData({
+      lst_id:options.lst_id
+    })
+  },
 
-  },
-  hide:function(){
-    var that=this;
-    that.setData({
-      select:false
-    })
-  },
-  chuandi:function(e){
-    // console.log(e)
-    var that=this;
-    // console.log(e.currentTarget.dataset.con)
-    that.setData({
-      content:e.currentTarget.dataset.con,
-      select:false
-    })
-  },
-  check_list:function(){
-    var that=this;
-    that.setData({
-      select:!that.data.select
-    })
-  },
-  kpi_detail:function(){
-    wx.navigateTo({
-      url: '../kpi_detail/kpi_detail',
-    })
-  },
-  fanli_detail:function(e){
-    // console.log(e)
-    wx.navigateTo({
-      url: '../fanli_detail/fanli_detail?word1='+e.currentTarget.dataset.word1+'&name='+e.currentTarget.dataset.name,
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -61,17 +31,15 @@ Page({
    */
   onShow: function () {
     var that=this;
-    that.setData({
-      statusBarHeight:wx.getSystemInfoSync()['statusBarHeight']
-    })
     wx.request({
-      url: getApp().globalData.url + '/api.php/home/index/my_hexiao',
+      url: getApp().globalData.url + '/api.php/home/index/fanli_process',
       data: {
+        lst_id:that.data.lst_id
       },
       success: res => {
         console.log(res)
         that.setData({
-          hexiao:res.data.data
+          pro:res.data.data.pro
         })
       }
     });
@@ -81,10 +49,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    var that=this;
-    that.setData({
-      select:false
-    })
+
   },
 
   /**

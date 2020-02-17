@@ -49,7 +49,7 @@
   height: 129rpx;
   border-radius: 6rpx;
   border: 2rpx solid rgba(230, 230, 230, 1);
-  margin: 160rpx auto 0;
+  margin: 170rpx auto 0;
 }
 
 .news_box {
@@ -227,7 +227,7 @@
   -webkit-overflow-scrolling: touch;
   overflow-y: hidden;
   white-space: nowrap;
-  
+
 }
 
 .cate_box .cate_name {
@@ -264,18 +264,21 @@
   margin-bottom: 22rpx;
   position: relative;
 }
-.con_news .is_read{
+
+.con_news .is_read {
   width: 87rpx;
   height: 37rpx;
   position: absolute;
   top: 0;
   right: 0;
 }
-.con_news  .is_top{
+
+.con_news .is_top {
   width: 40rpx;
   height: 40rpx;
   margin-right: 10rpx;
 }
+
 .con_news .title_box {
   padding: 28rpx 31rpx 34rpx;
 
@@ -320,6 +323,31 @@
   color: #E50020 !important;
 }
 
-.shouquan{
+.shouquan {
   margin-top: 100rpx;
+  padding: 0 165rpx;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(126, 126, 126, 1);
+}
+
+.shouquan_btn {
+  max-width: 233rpx;
+  height: 76rpx;
+  background: rgba(229, 0, 32, 1);
+  box-shadow: 0px 2rpx 4rpx 0px rgba(255, 158, 171, 1);
+  border-radius: 4rpx;
+  padding: 0;
+  margin-top: 56rpx;
+  text-align: center;
+  line-height: 76rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  outline: none;
 }

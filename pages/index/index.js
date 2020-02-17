@@ -20,7 +20,8 @@ Page({
     cate_id:'',
     currentTab:0,
     account_id:wx.getStorageSync('account_id'),
-    status:1
+    status:1,
+    statusBarHeight:''
   },
 
   /**
@@ -48,7 +49,7 @@ Page({
   check_list:function(){
     var that=this;
     that.setData({
-      select:true
+      select:!that.data.select
     })
   },
   hide:function(){
@@ -141,6 +142,9 @@ Page({
       account_id: wx.getStorageSync('account_id')
     })
     that.xuanran();
+    that.setData({
+      statusBarHeight:wx.getSystemInfoSync()['statusBarHeight']
+    })
   },
   onGotUserInfo: function (event) {
     var that = this;
@@ -203,7 +207,7 @@ Page({
   },
   xuanran(){
     var that=this;
-    console.log(that.data.account_id)
+    // console.log(that.data.account_id)
     if(that.data.account_id!=''){
       that.setData({
         status:2
@@ -248,7 +252,10 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    var that=this;
+    that.setData({
+      select:false
+    })
   },
 
   /**

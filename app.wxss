@@ -1,7 +1,7 @@
 /**app.wxss**/
 .header {
   width: 100%;
-  height: 129rpx;
+  height: 100rpx;
   background: white;
   position: fixed;
   top: 0;
@@ -9,7 +9,7 @@
   display: flex;
   /* align-items: center; */
   justify-content: space-between;
-  line-height: 176rpx;
+  line-height: 100rpx;
   z-index: 10;
 }
 
@@ -20,7 +20,7 @@
 
 .left_top {
   height: 100%;
-  line-height: 176rpx;
+  line-height: 100rpx;
 }
 
 .zong {

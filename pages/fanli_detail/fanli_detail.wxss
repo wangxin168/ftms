@@ -1,0 +1,79 @@
+/* pages/fanli_detail/fanli_detail.wxss */
+page {
+  background: #F7F7F7;
+}
+
+.top_header {
+  width: 100%;
+  background: white;
+  padding: 43rpx 213rpx 0 213rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(144, 144, 144, 1);
+  height: 96rpx;
+}
+
+.top_header .che {
+  color: rgba(229, 0, 32, 1);
+  width: 85rpx;
+  border-bottom: 3rpx solid #E50020;
+}
+
+.list_list {
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.list_li {
+  width: 690rpx;
+  height: 176rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 8rpx;
+  padding: 37rpx 26rpx 29rpx 34rpx;
+  box-sizing: border-box;
+  margin-top: 23rpx;
+}
+
+.title {
+  font-size: 30rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(43, 43, 43, 1);
+}
+
+.bott {
+  margin-top: 31rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.right_con {
+  display: flex;
+  align-items: center;
+}
+
+.right_con image {
+  width: 2rpx;
+  height: 21rpx;
+  margin-left: 17rpx;
+  margin-right: 19rpx;
+}
+
+.right_con text:nth-of-type(1) {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(111, 111, 111, 1);
+}
+
+.right_con text:nth-of-type(2) {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(229, 0, 32, 1);
+}

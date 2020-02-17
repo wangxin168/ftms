@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="header">
+<view class="header" style="padding-top:{{statusBarHeight}}px">
 	<view class="left_top">
 		<view class="zong" bindtap="check_list">
 			<text>{{content}}</text>
@@ -11,8 +11,8 @@
 </view>
 <!-- 分类下拉 -->
 <view class="news_list" wx:if="{{select}}" catchtap="hide">
-	<image src="../../img/san_wh.png" class="san_wh"></image>
-	<view class="list_con">
+	<image src="../../img/san_wh.png" class="san_wh" style="top:{{statusBarHeight+50}}px"></image>
+	<view class="list_con" style="top:{{statusBarHeight+55}}px">
 		<view catchtap="chuandi" data-con="111111">111111</view>
 		<view catchtap="chuandi" data-con="222222">222222</view>
 	</view>
@@ -108,6 +108,9 @@
     </view>
   </view>
 </view>
-<button class="shouquan" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" wx:if="{{status==1}}">立即授权</button>
+<view class="shouquan" wx:if="{{status==1}}">
+	<view> 未授权或授权信息已过期， 点击授权后您可查看您的专属内容</view>
+	<button class="shouquan_btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">立即授权</button>
+</view>
 <view class="shouquan" wx:if="{{status==3}}">获取用户信息失败，请在公众号内完成注册后再试！</view>
 <view class="shouquan" wx:if="{{status==4}}"> 您的账户已经被禁用！如有疑问请联系后台管理员</view>

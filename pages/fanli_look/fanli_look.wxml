@@ -1,0 +1,27 @@
+<!--pages/fanli_look/fanli_look.wxml-->
+<!-- <text>pages/fanli_look/fanli_look.wxml</text> -->
+<image src="../../img/fanli_look.png" class="bott_img"></image>
+<view class="white_box">
+  <view class="hui">
+    <view>放款日期</view>
+    <view>加13%税金折扣金额</view>
+    <view>金融机构</view>
+    <view>车型</view>
+  </view>
+  <view class="view_ul">
+    <view class="view_li" wx:for="{{lst}}" wx:key="index">
+      <view>{{item.key1}}</view>
+      <view>{{item.key2}}</view>
+      <view>{{item.key3}}</view>
+      <view>{{item.key4}}</view>
+    </view>
+  </view>
+  <view class="status">
+    状态：
+    <text wx:if="{{status==0}}">未确认开票</text>
+    <text wx:if="{{status==1}}">确认已开票</text>
+    <text wx:if="{{status==2}}">确认已收票</text>
+    <text wx:if="{{status==3}}">确认已付款</text>
+  </view>
+  <button class="kaipiao" bindtap="kaipiao" wx:if="{{status==0}}">确认已开票</button>
+</view>

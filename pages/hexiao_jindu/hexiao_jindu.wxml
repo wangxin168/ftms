@@ -1,0 +1,52 @@
+<!--pages/hexiao_jindu/hexiao_jindu.wxml-->
+<!-- <text>pages/hexiao_jindu/hexiao_jindu.wxml</text> -->
+<view class="jindu">
+	<image src="../../img/jindu.png" class="jindu_img"></image>
+  <!-- 确认已开票 -->
+	<view class="view_box" wx:if="{{pro.kaipiao_time!=0}}">
+		<view class="lili">
+			<image src="../../img/fang.png"></image>
+			<text>确认已开票</text>
+		</view>
+		<view class="time">{{pro.kaipiao_time}}</view>
+	</view>
+  <!-- 未确认已开票 -->
+  <view class="view_box" wx:if="{{pro.kaipiao_time==0}}">
+		<view class="lili">
+			<image src="../../img/fang_hui.png"></image>
+			<text style="color:#B2B2B2">未确认开票</text>
+		</view>
+	</view>
+  <image src="../../img/shuxian.png" class="shuxian"></image>
+  <!-- 确认已收票 -->
+  <view class="view_box" wx:if="{{pro.shoupiao_time!=0}}">
+		<view class="lili" style="margin-top:0;">
+			<image src="../../img/fang.png"></image>
+			<text>确认已收票</text>
+		</view>
+		<view class="time">{{pro.shoupiao_time}}</view>
+	</view>
+  <!-- 未确认收票 -->
+  <view class="view_box" wx:if="{{pro.shoupiao_time==0}}">
+		<view class="lili" style="margin-top:0;">
+			<image src="../../img/fang_hui.png"></image>
+			<text style="color:#B2B2B2">未确认收票</text>
+		</view>
+	</view>
+  <image src="../../img/shuxian.png" class="shuxian"></image>
+  <!-- 确认已付款 -->
+  <view class="view_box" wx:if="{{pro.dakuan_time!=0}}">
+		<view class="lili" style="margin-top:0;">
+			<image src="../../img/fang.png"></image>
+			<text>确认已付款</text>
+		</view>
+		<view class="time">{{pro.dakuan_time}}</view>
+	</view>
+  <!-- 未确认付款 -->
+  <view class="view_box" wx:if="{{pro.dakuan_time==0}}">
+		<view class="lili" style="margin-top:0;">
+			<image src="../../img/fang_hui.png"></image>
+			<text style="color:#B2B2B2">未确认付款</text>
+		</view>
+	</view>
+</view>

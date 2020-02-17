@@ -1,2 +1,29 @@
 <!--pages/rebate/rebate.wxml-->
-<text>pages/rebate/rebate.wxml</text>
+<!-- <text>pages/rebate/rebate.wxml</text> -->
+<view class="header" style="padding-top:{{statusBarHeight}}px">
+	<view class="left_top">
+		<view class="zong" bindtap="check_list">
+			<text>{{content}}</text>
+			<image src="../../img/sanjiao.png"></image>
+		</view>
+	</view>
+	<view class="title">核销返利</view>
+	<view></view>
+</view>
+<!-- 分类下拉 -->
+<view class="news_list" wx:if="{{select}}" catchtap="hide">
+	<image src="../../img/san_wh.png" class="san_wh" style="top:{{statusBarHeight+50}}px"></image>
+	<view class="list_con" style="top:{{statusBarHeight+55}}px">
+		<view catchtap="chuandi" data-con="111111">111111</view>
+		<view catchtap="chuandi" data-con="222222">222222</view>
+	</view>
+</view>
+<view class="rebate_list">
+  <view class="rebate_li" bindtap="fanli_detail" wx:for="{{hexiao}}" wx:key="index" data-word1="{{item.word1}}" data-name="{{item.word2}}">
+    <view class="left_li">
+      <view>{{item.word2}}</view>
+      <view>{{item.word1}}</view>
+    </view>
+    <image src="../../img/fanhui.png"></image>
+  </view>
+</view>

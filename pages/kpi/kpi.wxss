@@ -1,1 +1,201 @@
 /* pages/kpi/kpi.wxss */
+page {
+  background: #F7F7F7;
+}
+
+.news_list {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.san_wh {
+  width: 27rpx;
+  height: 17rpx;
+  position: absolute;
+  top: 135rpx;
+  left: 90rpx;
+}
+
+.list_con {
+  width: 252rpx;
+  top: 149rpx;
+  left: 60rpx;
+  position: absolute;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 4rpx 0px rgba(148, 148, 148, 0.5);
+  border-radius: 9rpx;
+  padding: 0 27rpx;
+  box-sizing: border-box;
+}
+
+.list_con>view {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(43, 43, 43, 1);
+  border-bottom: 1px solid #E3E3E3;
+  text-align: center;
+}
+
+.list_con>view:last-child {
+  border: none;
+}
+
+.hesuan {
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(101, 101, 101, 1);
+  margin-left: 50rpx;
+  margin-top: 169rpx;
+}
+
+.hesuan .red {
+  width: 5rpx;
+  height: 25rpx;
+  background: rgba(231, 25, 53, 1);
+  border-radius: 2rpx;
+  margin-right: 13rpx;
+}
+
+.hesuan image {
+  width: 16rpx;
+  height: 22rpx;
+  margin-left: 10rpx;
+}
+
+.hesuan_list {
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin-top: 67rpx;
+}
+
+.hesuan_list .hesuan_li .num {
+  width: 60rpx;
+  height: 60rpx;
+  background: rgba(255, 90, 104, 1);
+  border-radius: 8rpx;
+  position: absolute;
+  top: 0;
+  left: 47rpx;
+  font-size: 32rpx;
+  font-family: PangMenZhengDao;
+  color: white;
+  text-align: center;
+  line-height: 60rpx;
+  z-index: 1;
+}
+
+.hesuan_list .hesuan_li {
+  width: 100%;
+  height: 191rpx;
+  position: relative;
+  margin-bottom: 39rpx;
+}
+
+.hesuan_li .num_con {
+  width: 690rpx;
+  height: 161rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 8rpx;
+  position: relative;
+  overflow: hidden;
+  top: 30rpx;
+}
+
+.hesuan_li .num_con view:nth-of-type(1) {
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: rgba(43, 43, 43, 1);
+  line-height: 48rpx;
+  margin-top: 57rpx;
+  margin-left: 47rpx;
+}
+
+.hesuan_li .num_con view:nth-of-type(2) {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(180, 180, 180, 1);
+  margin-left: 47rpx;
+}
+
+.weidu {
+  position: absolute;
+  top: 10rpx;
+  right: 13rpx;
+  width: 217rpx;
+  height: 141rpx;
+}
+
+.hesuan_box {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 3;
+  top: 0;
+  left: 0;
+}
+
+.hesuan_view {
+  width: 607rpx;
+  height: 751rpx;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 71rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.hesuan_view .con_box {
+  width: 100%;
+  height: 651rpx;
+}
+
+.hesuan_view .close {
+  width: 66rpx;
+  height: 66rpx;
+  display: block;
+  margin: 34rpx auto 0;
+}
+
+.con_box image {
+  width: 100%;
+  height: 651rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.text_box {
+  width: 100%;
+  height: 651rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 55rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(106, 106, 106, 1);
+}

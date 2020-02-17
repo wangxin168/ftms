@@ -1,0 +1,18 @@
+<!--pages/fanli_detail/fanli_detail.wxml-->
+<!-- <text>pages/fanli_detail/fanli_detail.wxml</text> -->
+<view class="top_header">
+  <view wx:for="{{list}}" wx:key="index" class="{{item == shopitem?'che':''}}" bindtap='bindshop' data-classify="{{item}}">{{item}}</view>
+</view>
+<view class="list_list">
+  <view class="list_li" wx:for="{{lst}}" wx:key="index">
+    <view class="title">{{item.title}}</view>
+    <view class="bott">
+      <view></view>
+      <view class="right_con">
+        <text bindtap="jindu" data-lst_id="{{item.lst_id}}">查看进度</text>
+        <image src="../../img/shu.png"></image>
+        <text bindtap="fanli_look" data-lst_id="{{item.lst_id}}" data-name="{{item.title}}">查看详情</text>
+      </view>
+    </view>
+  </view>
+</view>

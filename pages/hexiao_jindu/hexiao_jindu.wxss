@@ -1,0 +1,50 @@
+/* pages/hexiao_jindu/hexiao_jindu.wxss */
+page {
+  background: rgba(247, 247, 247, 1);
+  padding: 23rpx 31rpx 37rpx 33rpx;
+  box-sizing: border-box;
+}
+
+.jindu {
+  width: 686rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 8rpx;
+  padding: 52rpx 138rpx 113rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.jindu_img {
+  width: 382rpx;
+  height: 382rpx;
+}
+
+.lili {
+  text-align: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(43, 43, 43, 1);
+  display: flex;
+  align-items: center;
+  width: 200rpx;
+  margin: 142rpx auto 0;
+}
+.lili image{
+  width: 23rpx;
+  height: 23rpx;
+  margin-right: 12rpx;
+}
+.time {
+  font-size: 26rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(180, 180, 180, 1);
+  text-align: center;
+}
+.shuxian{
+  width: 1px;
+  height: 96rpx;
+  margin: 12rpx auto;
+  display: block;
+}

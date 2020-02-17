@@ -1,0 +1,32 @@
+<!--pages/kpi_detail/kpi_detail.wxml-->
+<!-- <text>pages/kpi_detail/kpi_detail.wxml</text> -->
+<view class="top_view">
+	<view class="box" wx:for="{{lsts}}" wx:key="index" wx:for-item="crea">
+		<view class="red_view">
+			<image src="../../img/red_tiao.png"></image>
+			<view class="text_con">{{crea.aa}}</view>
+		</view>
+		<view class="table_list">
+			<view class="table_li" wx:for="{{crea.bb}}" wx:key="idex" wx:key="index">
+				<text>{{item.key}}： </text>
+				<text>{{item.value}}</text>
+			</view>
+		</view>
+	</view>
+	<view class="box" style="margin-bottom:28rpx;">
+		<view class="table_list">
+			<view class="table_li">
+				<text>{{end[0].key2}}： </text>
+				<text>{{end[0].value2}}</text>
+			</view>
+			<view class="table_li">
+				<text>{{end[0].key3}}： </text>
+				<text>{{end[0].value3}}</text>
+			</view>
+			<view class="table_li">
+				<text>{{end[0].key4}}： </text>
+				<text>{{end[0].value4}}</text>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,16 +1,21 @@
 {
   "pages": [
-    "pages/personal/personal",
     "pages/index/index",
-    "pages/kpi/kpi",
     "pages/rebate/rebate",
+    "pages/kpi/kpi",
+    "pages/personal/personal",
+    
     "pages/more_news/more_news",
     "pages/news_detail/news_detail",
     "pages/mess_detail/mess_detail",
     "pages/fast/fast",
     "pages/huifu/huifu",
     "pages/fanli/fanli",
-    "pages/know/know"
+    "pages/know/know",
+    "pages/kpi_detail/kpi_detail",
+    "pages/fanli_detail/fanli_detail",
+    "pages/hexiao_jindu/hexiao_jindu",
+    "pages/fanli_look/fanli_look"
   ],
   "window": {
     "backgroundTextStyle": "light",
