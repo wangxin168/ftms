@@ -18,7 +18,7 @@
 	</view>
 </view>
 <!-- 最新公告 -->
-<view class="news_box">
+<view class="news_box" style="margin:{{statusBarHeight+55}}px auto 0">
 	<view class="zuixin">
 		<view>最新</view>
 		<view>公告</view>

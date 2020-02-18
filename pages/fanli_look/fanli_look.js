@@ -6,7 +6,11 @@ Page({
    */
   data: {
     lst_id:'',
-    lst:[]
+    lst:[],
+    type:'',
+    AAA:'',
+    BBB:'',
+    CCC:''
   },
 
   /**
@@ -15,7 +19,8 @@ Page({
   onLoad: function (options) {
     var that=this;
     that.setData({
-      lst_id:options.lst_id
+      lst_id:options.lst_id,
+      type:options.type
     })
     wx.setNavigationBarTitle({
       title: options.name
@@ -45,6 +50,21 @@ Page({
           lst:res.data.data.lst,
           status:res.data.data.status
         })
+        if(res.data.data.AAA){
+          that.setData({
+            AAA:res.data.data.AAA,
+          })
+        }
+        if(res.data.data.BBB){
+          that.setData({
+            BBB:res.data.data.BBB,
+          })
+        }
+        if(res.data.data.CCC){
+          that.setData({
+            CCC:res.data.data.CCC,
+          })
+        }
       }
     });
   },

@@ -49,7 +49,7 @@
   height: 129rpx;
   border-radius: 6rpx;
   border: 2rpx solid rgba(230, 230, 230, 1);
-  margin: 170rpx auto 0;
+  /* margin: 170rpx auto 0; */
 }
 
 .news_box {

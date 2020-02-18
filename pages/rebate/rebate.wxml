@@ -18,7 +18,7 @@
 		<view catchtap="chuandi" data-con="222222">222222</view>
 	</view>
 </view>
-<view class="rebate_list">
+<view class="rebate_list" wx:if="{{account_id!=''}}" style="margin-top:{{statusBarHeight+55}}px">
   <view class="rebate_li" bindtap="fanli_detail" wx:for="{{hexiao}}" wx:key="index" data-word1="{{item.word1}}" data-name="{{item.word2}}">
     <view class="left_li">
       <view>{{item.word2}}</view>
@@ -27,3 +27,9 @@
     <image src="../../img/fanhui.png"></image>
   </view>
 </view>
+<view class="shouquan" wx:if="{{status==1}}">
+	<view> 未授权或授权信息已过期， 点击授权后您可查看您的返利数据</view>
+	<button class="shouquan_btn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">立即授权</button>
+</view>
+<view class="shouquan" wx:if="{{status==3}}">获取用户信息失败，请在公众号内完成注册后再试！</view>
+<view class="shouquan" wx:if="{{status==4}}"> 您的账户已经被禁用！如有疑问请联系后台管理员</view>

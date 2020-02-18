@@ -53,9 +53,11 @@ Page({
     })
   },
   fanli_look:function(e){
-    wx.navigateTo({
-      url: '../fanli_look/fanli_look?lst_id='+e.currentTarget.dataset.lst_id+'&name='+e.currentTarget.dataset.name,
-    })
+      wx.navigateTo({
+        url: '../fanli_look/fanli_look?lst_id='+e.currentTarget.dataset.lst_id+'&name='+e.currentTarget.dataset.name+'&type='+e.currentTarget.dataset.type,
+      })
+    
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
