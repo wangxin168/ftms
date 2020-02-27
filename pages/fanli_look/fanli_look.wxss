@@ -145,3 +145,14 @@
   flex-direction: column;
   justify-content: space-around;
 }
+page{
+  overflow: hidden;
+}
+.wuyong{
+  width: 100%;
+  height: 1000rpx;
+  background: #FAD997;
+  position: absolute;
+  top: 1205rpx;
+  left: 0;
+}

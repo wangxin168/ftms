@@ -47,4 +47,6 @@
 			<view catchtap="chuandi" data-con="{{item}}" wx:for="{{types}}" wx:key="index" wx:if="{{item==3}}">租赁</view>
 		</view>
 	</view>
+
+  <view class="wuyong"></view>
 </view>

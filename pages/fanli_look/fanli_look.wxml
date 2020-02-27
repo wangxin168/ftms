@@ -80,3 +80,4 @@
 	</view>
 	<button class="kaipiao" bindtap="kaipiao" wx:if="{{status==0&&type==2}}">确认已开票</button>
 </view>
+<view class="wuyong"></view>
