@@ -1,10 +1,16 @@
 <!--index.wxml-->
 <view class="header" style="padding-top:{{statusBarHeight}}px">
 	<view class="left_top">
-		<view class="zong" bindtap="check_list">
-			<text>{{content}}</text>
+		<view class="zong" bindtap="check_list" wx:if="{{account_id!=''}}">
+			<!-- <text wx:if="{{content==''&&user_cate[0]==1}}">金融</text>
+			<text wx:if="{{content==''&&user_cate[0]==2}}">保险</text>
+			<text wx:if="{{content==''&&user_cate[0]==3}}">租赁</text> -->
+			<text wx:if="{{content==''}}">全部信息</text>
+			<text wx:if="{{content==1}}">金融信息</text>
+			<text wx:if="{{content==2}}">保险信息</text>
+			<text wx:if="{{content==3}}">租赁信息</text>
 			<image src="../../img/sanjiao.png"></image>
-		</view>
+		</view> 
 	</view>
 	<view class="title">信息发布</view>
 	<view></view>
@@ -13,8 +19,10 @@
 <view class="news_list" wx:if="{{select}}" catchtap="hide">
 	<image src="../../img/san_wh.png" class="san_wh" style="top:{{statusBarHeight+50}}px"></image>
 	<view class="list_con" style="top:{{statusBarHeight+55}}px">
-		<view catchtap="chuandi" data-con="111111">111111</view>
-		<view catchtap="chuandi" data-con="222222">222222</view>
+		<view catchtap="chuandi" data-con="">全部信息</view>
+		<view catchtap="chuandi" data-con="{{item}}" wx:for="{{user_cate}}" wx:key="index" wx:if="{{item==1}}">金融信息</view>
+		<view catchtap="chuandi" data-con="{{item}}" wx:for="{{user_cate}}" wx:key="index" wx:if="{{item==2}}">保险信息</view>
+		<view catchtap="chuandi" data-con="{{item}}" wx:for="{{user_cate}}" wx:key="index" wx:if="{{item==3}}">租赁信息</view>
 	</view>
 </view>
 <!-- 最新公告 -->
@@ -99,7 +107,7 @@
 				<image src="../../img/is_top.png" class="is_top" wx:if="{{len.is_top==1}}"></image>
 				<text style="width:600rpx;">{{len.title}}</text>
 			</view>
-      <view>{{len.fabu_time}}</view>
+      <view>发布时间：{{len.fabu_time}}</view>
     </view>
     <view class="tit_list" wx:if="{{len.option!=''}}">
       <view wx:for="{{len.option}}" data-message_id="{{item.message_id}}" wx:key="ind" catchtap="label_click" data-label_id="{{item.label_id}}">

@@ -1,20 +1,50 @@
 <!--pages/fanli/fanli.wxml-->
 <!-- <text>pages/fanli/fanli.wxml</text> -->
-<view class="fanli_ul">
-  <view class="fanli_li">
-    <text>2019年第四季度返利</text>
-    <text>¥13140</text>
-  </view>
-  <view class="fanli_li">
-    <text>2019年第四季度返利</text>
-    <text>¥13140</text>
-  </view>
-  <view class="fanli_li">
-    <text>2019年第四季度返利</text>
-    <text>¥13140</text>
-  </view>
-  <view class="fanli_li">
-    <text>2019年第四季度返利</text>
-    <text>¥13140</text>
-  </view>
+<view class="fanli_box">
+	<image src="../../img/fanli_bott.png" class="fanli_img"></image>
+	<view class="left_top">
+		<view class="zong" bindtap="check_list">
+			<text wx:if="{{usertype==''&&types.length>=1}}">全部</text>
+			<text wx:if="{{usertype==1}}">金融</text>
+			<text wx:if="{{usertype==2}}">保险</text>
+			<text wx:if="{{usertype==3}}">租赁</text>
+			<image src="../../img/sanjiao.png"></image>
+		</view>
+	</view>
+	<view class="sele_box">
+		<view class="sele_small">
+			<view class="sele_top">
+				<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+					<view class="picker" wx:if="{{index!=''}}">
+						{{array[index]}}年
+					</view>
+					<view class="picker" wx:if="{{index==''}}">
+						{{array[0]}}年
+					</view>
+				</picker>
+				<!-- <text>{{year}}年</text> -->
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+          <image src="../../img/xiala2.png"></image>
+        </picker>
+				
+			</view>
+			<view class="money">
+				<!-- <image src="../../img/qian.png"></image> -->
+				<text>￥{{total_money}}</text>
+			</view>
+			<view class="dangqian">
+				当前总返利
+			</view>
+		</view>
+	</view>
+
+	<view class="news_list" wx:if="{{select}}" catchtap="hide">
+		<image src="../../img/san_wh.png" class="san_wh"></image>
+		<view class="list_con">
+			<view catchtap="chuandi" data-con="">全部</view>
+			<view catchtap="chuandi" data-con="{{item}}" wx:for="{{types}}" wx:key="index" wx:if="{{item==1}}">金融</view>
+			<view catchtap="chuandi" data-con="{{item}}" wx:for="{{types}}" wx:key="index" wx:if="{{item==2}}">保险</view>
+			<view catchtap="chuandi" data-con="{{item}}" wx:for="{{types}}" wx:key="index" wx:if="{{item==3}}">租赁</view>
+		</view>
+	</view>
 </view>

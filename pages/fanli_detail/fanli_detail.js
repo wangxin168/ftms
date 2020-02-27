@@ -9,7 +9,8 @@ Page({
     shopitem:'进行中',
     status:'1',
     word1:'',
-    lst:[]
+    lst:[],
+    user_type:''
   },
 
   /**
@@ -18,7 +19,8 @@ Page({
   onLoad: function (options) {
     var that=this;
     that.setData({
-      word1:options.word1
+      word1:options.word1,
+      user_type:options.user_type
     })
     wx.setNavigationBarTitle({
       title: options.name
@@ -76,7 +78,9 @@ Page({
       data: {
         account_id: wx.getStorageSync('account_id'),
         status:that.data.status,
-        word1:that.data.word1
+        word1:that.data.word1,
+        user_type:that.data.user_type,
+        // user_type:'1'
       },
       success: res => {
         console.log(res)

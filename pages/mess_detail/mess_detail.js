@@ -134,7 +134,10 @@ Page({
             icon:'none',
             duration:2000
           })
-          that.onShow()
+          that.onShow();
+          that.setData({
+            qust:''
+          })
         }
       }
     });

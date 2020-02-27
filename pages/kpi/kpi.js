@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    content:'金融类kpi',
+    content:'',
     select:false,
     statusBarHeight:'',
     second:[],
@@ -13,6 +13,7 @@ Page({
     dis:false,
     account_id:wx.getStorageSync('account_id'),
     status:1,
+    third:[]
   },
 
   /**
@@ -94,6 +95,7 @@ Page({
       content:e.currentTarget.dataset.con,
       select:false
     })
+    that.onShow();
   },
   check_list:function(){
     var that=this;
@@ -145,14 +147,16 @@ Page({
     wx.request({
       url: getApp().globalData.url + '/api.php/home/index/my_kpi',
       data: {
-        account_id: wx.getStorageSync('account_id')
+        account_id: wx.getStorageSync('account_id'),
+        user_type:that.data.content
       },
       success: res => {
         console.log(res)
         if (res.data.code == 1) {
           that.setData({
             second:res.data.data.second,
-            first:res.data.data.first
+            first:res.data.data.first,
+            third:res.data.data.third
           })
         }
       }

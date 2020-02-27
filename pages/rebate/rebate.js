@@ -5,12 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    content:'租赁返利',
+    content:'',
     select:false,
     statusBarHeight:'',
     hexiao:[],
     account_id:wx.getStorageSync('account_id'),
     status:1,
+    types:[]
   },
 
   /**
@@ -92,6 +93,7 @@ Page({
       content:e.currentTarget.dataset.con,
       select:false
     })
+    that.onShow()
   },
   check_list:function(){
     var that=this;
@@ -106,8 +108,15 @@ Page({
   },
   fanli_detail:function(e){
     // console.log(e)
+    var that=this;
+    if(that.data.content==''){
+      // var user_type=that.data.types[0]
+      var user_type=''
+    }else{
+      var user_type=that.data.content
+    }
     wx.navigateTo({
-      url: '../fanli_detail/fanli_detail?word1='+e.currentTarget.dataset.word1+'&name='+e.currentTarget.dataset.name,
+      url: '../fanli_detail/fanli_detail?word1='+e.currentTarget.dataset.word1+'&name='+e.currentTarget.dataset.name+'&user_type='+user_type,
     })
   },
   /**
@@ -136,12 +145,14 @@ Page({
     wx.request({
       url: getApp().globalData.url + '/api.php/home/index/my_hexiao',
       data: {
-        account_id: wx.getStorageSync('account_id')
+        account_id: wx.getStorageSync('account_id'),
+        user_type:that.data.content
       },
       success: res => {
         console.log(res)
         that.setData({
-          hexiao:res.data.data
+          hexiao:res.data.data.dataarr,
+          types:res.data.data.types
         })
       }
     });

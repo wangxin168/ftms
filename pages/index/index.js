@@ -7,7 +7,7 @@ Page({
    */
   data: {
     select:false,
-    content:'金融信息',
+    content:'',
     adv:[],
     date1:'',
     date2:'',
@@ -21,7 +21,8 @@ Page({
     currentTab:0,
     account_id:wx.getStorageSync('account_id'),
     status:1,
-    statusBarHeight:''
+    statusBarHeight:'',
+    user_cate:[]
   },
 
   /**
@@ -66,6 +67,7 @@ Page({
       content:e.currentTarget.dataset.con,
       select:false
     })
+    that.xuanran()
   },
   bindDateChange1: function (e) {
     var that=this;
@@ -220,7 +222,8 @@ Page({
         jin_time:that.data.jin_time,
         cate_id:that.data.cate_id,
         start_time:that.data.date1,
-        end_time:that.data.date2
+        end_time:that.data.date2,
+        user_type:that.data.content
         // activity_id: that.data.activity_id
       },
       success: res => {
@@ -230,7 +233,8 @@ Page({
           that.setData({
             adv: res.data.data.adv,
             cate:res.data.data.cate,
-            message:res.data.data.message
+            message:res.data.data.message,
+            user_cate:res.data.data.user_cate
           })
         }
       }

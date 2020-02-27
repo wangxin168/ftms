@@ -19,22 +19,27 @@
 	</view>
 	<view class="status">
 		状态：
-		<text wx:if="{{status==0}}">未确认开票</text>
-		<text wx:if="{{status==1}}">确认已开票</text>
-		<text wx:if="{{status==2}}">确认已收票</text>
-		<text wx:if="{{status==3}}">确认已付款</text>
+		<text wx:if="{{status!=3}}">未放款</text>
+		<text wx:if="{{status==3}}">已放款</text>
 	</view>
-	<button class="kaipiao" bindtap="kaipiao" wx:if="{{status==0}}">确认已开票</button>
+	<button class="kaipiao" bindtap="kaipiao" wx:if="{{status==0&&type==2}}">确认已开票</button>
 </view>
 
 <!-- 保险类型 -->
-<view class="white_box" wx:if="{{type==2}}">
-	<view class="hui">
+<view class="white_box" wx:if="{{type==2||type==3}}">
+	<view class="hui" wx:if="{{type==2}}">
 		<view>保险公司</view>
 		<view>AAA续保台数</view>
 		<view>确认合计</view>
 		<view>支援台数</view>
 		<view>支援金额</view>
+	</view>
+	<view class="hui" wx:if="{{type==3}}">
+		<view>车型</view>
+		<view>支援台数</view>
+		<view>台数总计</view>
+		<view>补贴金额总计</view>
+		<view>含税处理</view>
 	</view>
 	<view class="view2_ul">
 		<view style="width:40%;">
@@ -65,10 +70,13 @@
 	</view>
 	<view class="status">
 		状态：
-		<text wx:if="{{status==0}}">未确认开票</text>
-		<text wx:if="{{status==1}}">确认已开票</text>
-		<text wx:if="{{status==2}}">确认已收票</text>
-		<text wx:if="{{status==3}}">确认已付款</text>
+		<text wx:if="{{status==0&&type==2}}">未开票</text>
+		<text wx:if="{{status==1&&type==2}}">已开票</text>
+		<text wx:if="{{status==2&&type==2}}">已确认</text>
+		<text wx:if="{{status==3&&type==2}}">已放款</text>
+
+		<text wx:if="{{status==3&&type==3}}">已放款</text>
+		<text wx:if="{{status!=3&&type==3}}">未放款</text>
 	</view>
-	<button class="kaipiao" bindtap="kaipiao" wx:if="{{status==0}}">确认已开票</button>
+	<button class="kaipiao" bindtap="kaipiao" wx:if="{{status==0&&type==2}}">确认已开票</button>
 </view>

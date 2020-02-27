@@ -38,4 +38,5 @@
     <view class="li_bott">{{item.reply_content}}</view>
   </view>
 </view>
+<view style="height:2rpx;width:100%;"></view>
 <!-- <web-view wx:if="{{links!=''}}" src="{{links}}"></web-view> -->

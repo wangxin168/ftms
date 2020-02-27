@@ -2,8 +2,11 @@
 page {
   background: #CCAE76;
 }
+.top_view{
+  margin-top: -14rpx;
+}
 .box:nth-of-type(1){
-  margin: 582rpx auto 0;
+  margin-top: 0!important;
 }
 .box {
   width: 709rpx;
@@ -17,7 +20,7 @@ page {
   background: white;
   padding: 44rpx 46rpx 35rpx;
   box-sizing: border-box;
-  border-radius: 13rpx;
+  border-radius: 0 0 13rpx;
   /* position: absolute; */
   /* top: 16rpx; */
 }
@@ -49,7 +52,7 @@ page {
 }
 
 .red_view {
-  width: 377rpx;
+  width: 100%;
   height: 57rpx;
   margin: auto;
   position: relative;
@@ -76,4 +79,9 @@ page {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.kpi_img{
+  width: 100%;
+  display: block;
 }

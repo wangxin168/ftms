@@ -1,5 +1,6 @@
 <!--pages/kpi_detail/kpi_detail.wxml-->
 <!-- <text>pages/kpi_detail/kpi_detail.wxml</text> -->
+<image src="../../img/kpi_img.png" class="kpi_img"></image>
 <view class="top_view">
 	<view class="box" wx:for="{{lsts}}" wx:key="index" wx:for-item="crea">
 		<view class="red_view">
@@ -14,16 +15,16 @@
 		</view>
 	</view>
 	<view class="box" style="margin-bottom:28rpx;">
-		<view class="table_list">
-			<view class="table_li">
+		<view class="table_list" style="border-radius:13rpx;">
+			<view class="table_li" wx:if="{{end[0].key2}}">
 				<text>{{end[0].key2}}： </text>
 				<text>{{end[0].value2}}</text>
 			</view>
-			<view class="table_li">
+			<view class="table_li" wx:if="{{end[0].key3}}">
 				<text>{{end[0].key3}}： </text>
 				<text>{{end[0].value3}}</text>
 			</view>
-			<view class="table_li">
+			<view class="table_li" wx:if="{{end[0].key3}}">
 				<text>{{end[0].key4}}： </text>
 				<text>{{end[0].value4}}</text>
 			</view>
