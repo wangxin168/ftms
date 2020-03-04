@@ -3,17 +3,17 @@
 <view>
 	<image src="../../img/back2.png" class="back"></image>
 	<view class="actor">
-		<image src="{{account_id==''?'../../img/touxiang.png':detail.avatar}}"></image>
-		<view class="act_right" wx:if="{{account_id!=''}}">
+		<image src="{{login_is==''?'../../img/touxiang.png':detail.avatar}}"></image>
+		<view class="act_right" wx:if="{{account_id!=''&&login_is!=''}}">
 			<view>{{detail.nickname}}</view>
-			<view>XXX店XXX专员</view>
+			<view>{{detail.shop_name}}店{{detail.position}}专员</view>
 		</view>
-    <view class="act_right" wx:if="{{account_id==''}}" style="font-size:36rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(158,130,65,1);">
+		<view class="act_right" wx:if="{{account_id==''||login_is==''}}" style="font-size:36rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(158,130,65,1);">
 			未知用户
 		</view>
 	</view>
 	<view class="white">
-		<view class="white_ul" wx:if="{{account_id!=''}}">
+		<view class="white_ul" wx:if="{{account_id!=''&&login_is!=''}}">
 			<view class="white_li" bindtap="huifu">
 				<view class="white_left">
 					<image src="../../img/xinxi.png"></image>
@@ -35,6 +35,13 @@
 				</view>
 				<image src="../../img/fanhui.png" class="fanhui"></image>
 			</view>
+			<view class="white_li" bindtap="tuichu">
+				<view class="white_left">
+					<image src="../../img/tuichu.png"></image>
+					<text>退出当前帐号</text>
+				</view>
+				<image src="../../img/fanhui.png" class="fanhui"></image>
+			</view>
 		</view>
 		<view class="shouquan" wx:if="{{status==1}}">
 			<view> 未授权或授权信息已过期， 点击授权后您可查看您的返利数据</view>
@@ -42,5 +49,27 @@
 		</view>
 		<view class="shouquan" wx:if="{{status==3}}">获取用户信息失败，请在公众号内完成注册后再试！</view>
 		<view class="shouquan" wx:if="{{status==4}}"> 您的账户已经被禁用！如有疑问请联系后台管理员</view>
+		<view class="shouquan" wx:if="{{status==5}}">
+			<view>请重新登录哦</view>
+			<button class="shouquan_btn" bindtap="denglu">登录</button>
+		</view>
+
+	</view>
+</view>
+<!-- 登录弹框 -->
+<view class="login_box" wx:if="{{login_type==1}}">
+	<view class="login">
+		<image src="../../img/index_bott.png" class="index_bott"></image>
+		<view class="login_con">
+			<view class="denglu">
+				<view style="opacity: 0;">11</view>
+				<view>登录</view>
+				<image src="../../img/cha.png" bindtap="close"></image>
+			</view>
+			<input type="text" placeholder="请输入手机号" class="input_text" bindinput="phone"></input>
+			<input type="text" placeholder="请输入门店编码" class="input_text" bindinput="shop_code"></input>
+			<!-- <input type="password" placeholder="请输入密码" class="input_text"></input> -->
+			<input type="button" class="button_text" value="登录" bindtap="login" disabled="disabled"></input>
+		</view>
 	</view>
 </view>

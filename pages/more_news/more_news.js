@@ -30,7 +30,7 @@ Page({
     wx.request({
       url: getApp().globalData.url + '/api.php/home/index/all_gg_lst',
       data: {
-        
+        account_id: wx.getStorageSync('account_id')
       },
       success: res => {
         console.log(res)

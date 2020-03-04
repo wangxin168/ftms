@@ -42,7 +42,8 @@ Page({
     wx.request({
       url: getApp().globalData.url + '/api.php/home/index/fanli_detail',
       data: {
-        lst_id:that.data.lst_id
+        lst_id:that.data.lst_id,
+        account_id:wx.getStorageSync('account_id')
       },
       success: res => {
         console.log(res)
@@ -73,7 +74,8 @@ Page({
     wx.request({
       url: getApp().globalData.url + '/api.php/home/index/do_kaipiao',
       data: {
-        lst_id:that.data.lst_id
+        lst_id:that.data.lst_id,
+        account_id:wx.getStorageSync('account_id')
       },
       success: res => {
         console.log(res)

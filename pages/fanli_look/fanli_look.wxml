@@ -5,7 +5,7 @@
 <view class="white_box" wx:if="{{type==1}}">
 	<view class="hui">
 		<view>放款日期</view>
-		<view>加13%税金折扣金额</view>
+		<view style="padding:0 10rpx;box-sizing:border-box;">税金折扣金额</view>
 		<view>金融机构</view>
 		<view>车型</view>
 	</view>
@@ -29,7 +29,7 @@
 <view class="white_box" wx:if="{{type==2||type==3}}">
 	<view class="hui" wx:if="{{type==2}}">
 		<view>保险公司</view>
-		<view>AAA续保台数</view>
+		<view style="padding:0 10rpx;box-sizing:border-box;">AAA续保台数</view>
 		<view>确认合计</view>
 		<view>支援台数</view>
 		<view>支援金额</view>
@@ -38,7 +38,7 @@
 		<view>车型</view>
 		<view>支援台数</view>
 		<view>台数总计</view>
-		<view>补贴金额总计</view>
+		<view style="padding:0 10rpx;box-sizing:border-box;">补贴金额总计</view>
 		<view>含税处理</view>
 	</view>
 	<view class="view2_ul">

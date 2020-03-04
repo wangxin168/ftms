@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="header" style="padding-top:{{statusBarHeight}}px">
 	<view class="left_top">
-		<view class="zong" bindtap="check_list" wx:if="{{account_id!=''}}">
+		<view class="zong" bindtap="check_list" wx:if="{{account_id!=''&&login_is!=''}}">
 			<!-- <text wx:if="{{content==''&&user_cate[0]==1}}">金融</text>
 			<text wx:if="{{content==''&&user_cate[0]==2}}">保险</text>
 			<text wx:if="{{content==''&&user_cate[0]==3}}">租赁</text> -->
@@ -10,7 +10,7 @@
 			<text wx:if="{{content==2}}">保险信息</text>
 			<text wx:if="{{content==3}}">租赁信息</text>
 			<image src="../../img/sanjiao.png"></image>
-		</view> 
+		</view>
 	</view>
 	<view class="title">信息发布</view>
 	<view></view>
@@ -31,7 +31,7 @@
 		<view>最新</view>
 		<view>公告</view>
 	</view>
-	<view>
+	<view wx:if="{{account_id!=''&&login_is!=''}}">
 		<swiper class="xinwen" vertical="true" autoplay="true" circular="true" interval="1500" circular="true" skip-hidden-item-layout="true" display-multiple-items="2">
 			<block wx:for="{{adv}}" wx:key="index">
 				<swiper-item class="swiper-item" bindtap="xinwen">
@@ -40,11 +40,16 @@
 						<view class="swiper">{{item.title}}</view>
 					</view>
 				</swiper-item>
-
+				<swiper-item class="swiper-item" bindtap="xinwen" wx:if="{{adv.length==1}}">
+					<view class='da'>
+						<view class='left'>2</view>
+						<view class="swiper">{{item.title}}</view>
+					</view>
+				</swiper-item>
 			</block>
 		</swiper>
 	</view>
-	<view class="more" bindtap="more">
+	<view class="more" bindtap="more" wx:if="{{account_id!=''&&login_is!=''}}">
 		<view>更多</view>
 		<image src="../../img/more.png"></image>
 	</view>
@@ -61,7 +66,9 @@
 				{{jin_con}}
 			</view>
 		</picker>
-		<image src="../../img/xiala.png"></image>
+		<picker bindchange="bindPickerChange" value="{{index}}" range="{{time}}" style="width:13rpx;height:8rpx;">
+			<image src="../../img/xiala.png"></image>
+		</picker>
 	</view>
 </view>
 <view class="time_che">
@@ -95,26 +102,27 @@
 			{{item.cate_name}}
 			<view class="xian" wx:if="{{currentTab==index}}"></view>
 		</view>
-		
+
 	</view>
 </view>
-<view class="con_box" wx:if="{{account_id!=''}}">
-  <view class="con_news" wx:for="{{message}}" wx:key="index" wx:for-item="len" bindtap="message_detail" data-message_id="{{len.message_id}}">
+<view class="con_box" wx:if="{{account_id!=''&&login_is!=''}}">
+	<view class="con_news" wx:for="{{message}}" wx:key="index" wx:for-item="len" bindtap="message_detail" data-message_id="{{len.message_id}}">
 		<image src="../../img/weidu.png" class="is_read" wx:if="{{len.is_read==0}}"></image>
 		<image src="../../img/yidu.png" class="is_read" wx:if="{{len.is_read==1}}"></image>
-    <view class="title_box">
-      <view style="display:flex;align-items:center;">
+		<view class="title_box">
+			<view style="display:flex;align-items:center;">
 				<image src="../../img/is_top.png" class="is_top" wx:if="{{len.is_top==1}}"></image>
 				<text style="width:600rpx;">{{len.title}}</text>
 			</view>
-      <view>发布时间：{{len.fabu_time}}</view>
-    </view>
-    <view class="tit_list" wx:if="{{len.option!=''}}">
-      <view wx:for="{{len.option}}" data-message_id="{{item.message_id}}" wx:key="ind" catchtap="label_click" data-label_id="{{item.label_id}}">
-        {{item.label}}
-      </view>
-    </view>
-  </view>
+			<view>发布时间：{{len.fabu_time}}</view>
+		</view>
+		<view class="tit_list" wx:if="{{len.option!=''}}">
+			<view wx:for="{{len.option}}" data-message_id="{{item.message_id}}" wx:key="ind" catchtap="label_click" data-label_id="{{item.label_id}}">
+				<text>{{item.label}}</text>
+				<image src="../../img/right.png"></image>
+			</view>
+		</view>
+	</view>
 </view>
 <view class="shouquan" wx:if="{{status==1}}">
 	<view> 未授权或授权信息已过期， 点击授权后您可查看您的专属内容</view>
@@ -122,3 +130,24 @@
 </view>
 <view class="shouquan" wx:if="{{status==3}}">获取用户信息失败，请在公众号内完成注册后再试！</view>
 <view class="shouquan" wx:if="{{status==4}}"> 您的账户已经被禁用！如有疑问请联系后台管理员</view>
+<view class="shouquan" wx:if="{{status==5}}">
+	<view>请重新登录哦</view>
+	<button class="shouquan_btn" bindtap="denglu">登录</button>
+</view>
+<!-- 登录弹框 -->
+<view class="login_box" wx:if="{{login_type==1}}">
+	<view class="login">
+		<image src="../../img/index_bott.png" class="index_bott"></image>
+		<view class="login_con">
+			<view class="denglu">
+				<view style="opacity: 0;">11</view>
+				<view>登录</view>
+				<image src="../../img/cha.png" bindtap="close"></image>
+			</view>
+			<input type="text" placeholder="请输入手机号" class="input_text" bindinput="phone"></input>
+			<input type="text" placeholder="请输入门店编码" class="input_text" bindinput="shop_code"></input>
+			<!-- <input type="password" placeholder="请输入密码" class="input_text"></input> -->
+			<input type="button" class="button_text" value="登录" bindtap="login" disabled="disabled"></input>
+		</view>
+	</view>
+</view>

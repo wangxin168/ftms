@@ -11,7 +11,12 @@ Page({
     hexiao:[],
     account_id:wx.getStorageSync('account_id'),
     status:1,
-    types:[]
+    types:[],
+    mobile:'',
+    shop_code:'',
+    // 是否登录
+    login_type:0,    
+    login_is:''
   },
 
   /**
@@ -59,10 +64,18 @@ Page({
                 },
                 success(res) {
                   console.log(res)
-                  that.setData({
-                    status:2
-                  })
-                  that.onShow()
+                  // 如果等于0就是没有登录
+                  if(wx.getStorageSync('login_is')==0){
+                    // 让登录框显示
+                    that.setData({
+                      login_type:1
+                    })
+                  }else{
+                    that.setData({
+                      status:2
+                    })
+                    that.onShow()
+                  }
                 }
               })
             }else if(res.data.code == 3){
@@ -77,6 +90,60 @@ Page({
           }
         })
       }
+    })
+  },
+  phone:function(e){
+    var that=this;
+    that.setData({
+      mobile:e.detail.value
+    })
+  },
+  shop_code:function(e){
+    var that=this;
+    that.setData({
+      shop_code:e.detail.value
+    })
+  },
+  login:function(){
+    var that=this;
+    wx.request({
+      url: getApp().globalData.url + '/api.php/home/index/user_login',
+      data: {
+        account_id: wx.getStorageSync('account_id'),
+        mobile:that.data.mobile,
+        shop_code:that.data.shop_code
+      },
+      success: res => {
+        console.log(res)
+        wx.showToast({
+          title:res.data.msg,
+          icon:'none'
+        })
+        if (res.data.code == 1) {
+          wx.setStorageSync('login_is', 1);
+          wx.setStorageSync('phone', that.data.mobile);
+          wx.setStorageSync('shop_code', that.data.shop_code);
+          that.onShow();
+          that.setData({
+            login_type:0,
+
+          })
+          
+        }
+      }
+    });
+  },
+  denglu:function(){
+    var that=this;
+    that.setData({
+      login_type:1
+    })
+  },
+  close:function(){
+    var that=this;
+    that.setData({
+      login_type:0,
+      status:5
     })
   },
   hide:function(){
@@ -131,13 +198,21 @@ Page({
    */
   onShow: function () {
     var that=this;
+    
     that.setData({
-      account_id: wx.getStorageSync('account_id')
+      account_id: wx.getStorageSync('account_id'),
+      login_is:wx.getStorageSync('login_is')
     })
     if(that.data.account_id!=''){
       that.setData({
         status:2
       })
+      if(wx.getStorageSync('login_is')==0){
+        // 让登录框显示
+        that.setData({
+          login_type:1
+        })
+      }
     }
     that.setData({
       statusBarHeight:wx.getSystemInfoSync()['statusBarHeight']

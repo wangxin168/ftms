@@ -2,7 +2,7 @@
 <!-- <text>pages/kpi/kpi.wxml</text> -->
 <view class="header" style="padding-top:{{statusBarHeight}}px">
 	<view class="left_top">
-		<view class="zong" bindtap="check_list" wx:if="{{account_id!=''}}">
+		<view class="zong" bindtap="check_list" wx:if="{{account_id!=''&&login_is!=''}}">
 			<text wx:if="{{content==''&&third.length>=1}}">全部KPI</text>
 			<text wx:if="{{content==1}}">金融KPI</text>
 			<text wx:if="{{content==2}}">保险KPI</text>
@@ -23,18 +23,18 @@
 		<view catchtap="chuandi" data-con="{{item}}" wx:for="{{third}}" wx:key="index" wx:if="{{item==3}}">租赁KPI</view>
 	</view>
 </view>
-<view class="hesuan" wx:if="{{account_id!=''}}" style="margin-top:{{statusBarHeight+60}}px">
+<view class="hesuan" wx:if="{{account_id!=''&&login_is!=''}}" style="margin-top:{{statusBarHeight+60}}px">
 	<text class="red"></text>
 	<text bindtap="show">2020年KPI核算标准</text>
 	<image src="../../img/fanhui.png"></image>
 </view>
-<view class="hesuan_list">
+<view class="hesuan_list" wx:if="{{account_id!=''&&login_is!=''}}">
 	<view class="hesuan_li" bindtap="kpi_detail" wx:for="{{second}}" wx:key="index" data-id='{{item.id}}' data-name="{{item.names}}">
 		<view class="num" wx:if="{{item.is_du==0}}">{{item.sorts}}</view>
 		<view class="num" wx:if="{{item.is_du==1}}" style="background:#C2C2C2;">{{item.sorts}}</view>
 		<view class="num_con">
 			<view>{{item.names}}</view>
-			<view>December 2019</view>
+			<view>本次kip考核全国排名{{item.paiming}}名</view>
 			<image class="weidu" src="../../img/weidu2.png" wx:if="{{item.is_du==0}}"></image>
 			<image class="weidu" src="../../img/yidu2.png" wx:if="{{item.is_du==1}}"></image>
 		</view>
@@ -60,3 +60,24 @@
 </view>
 <view class="shouquan" wx:if="{{status==3}}">获取用户信息失败，请在公众号内完成注册后再试！</view>
 <view class="shouquan" wx:if="{{status==4}}"> 您的账户已经被禁用！如有疑问请联系后台管理员</view>
+<view class="shouquan" wx:if="{{status==5}}">
+	<view>请重新登录哦</view>
+	<button class="shouquan_btn" bindtap="denglu">登录</button>
+</view>
+<!-- 登录弹框 -->
+<view class="login_box" wx:if="{{login_type==1}}">
+	<view class="login">
+		<image src="../../img/index_bott.png" class="index_bott"></image>
+		<view class="login_con">
+			<view class="denglu">
+				<view style="opacity: 0;">11</view>
+				<view>登录</view>
+				<image src="../../img/cha.png" bindtap="close"></image>
+			</view>
+			<input type="text" placeholder="请输入手机号" class="input_text" bindinput="phone"></input>
+			<input type="text" placeholder="请输入门店编码" class="input_text" bindinput="shop_code"></input>
+			<!-- <input type="password" placeholder="请输入密码" class="input_text"></input> -->
+			<input type="button" class="button_text" value="登录" bindtap="login" disabled="disabled"></input>
+		</view>
+	</view>
+</view>

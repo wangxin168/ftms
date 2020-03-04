@@ -80,7 +80,6 @@ Page({
         status:that.data.status,
         word1:that.data.word1,
         user_type:that.data.user_type,
-        // user_type:'1'
       },
       success: res => {
         console.log(res)

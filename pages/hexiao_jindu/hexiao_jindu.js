@@ -34,7 +34,8 @@ Page({
     wx.request({
       url: getApp().globalData.url + '/api.php/home/index/fanli_process',
       data: {
-        lst_id:that.data.lst_id
+        lst_id:that.data.lst_id,
+        account_id:wx.getStorageSync('account_id')
       },
       success: res => {
         console.log(res)
