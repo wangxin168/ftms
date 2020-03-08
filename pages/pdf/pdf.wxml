@@ -1,0 +1,3 @@
+<!--pages/pdf/pdf.wxml-->
+<!-- <text>pages/pdf/pdf.wxml</text> -->
+<web-view src="{{url_file}}" wx:if="{{url_file!=''}}"></web-view>

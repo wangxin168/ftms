@@ -35,6 +35,6 @@ App({
   },
   globalData: {
     userInfo: null,
-    url:'https://peak.bestlsw.top'
+    url:'https://toyotaxcx.yuanchuangyuan.com'
   }
 })

@@ -319,7 +319,7 @@ Page({
   more:function(){
     var that=this;
     wx.navigateTo({
-      url: '../more_news/more_news'
+      url: '../more_news/more_news?content='+that.data.content
     })
   },
   message_detail:function(e){

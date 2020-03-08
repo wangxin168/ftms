@@ -4,7 +4,18 @@
 <view class="contents">
   <template is="wxParse" data="{{wxParseData:contents.nodes}}" /> 
   <view class="image_list">
-    <image src="{{item}}" wx:for="{{images}}" mode="aspectFill" bindtap="imgYu" data-list="{{images}}" data-src="{{item}}"></image>
+    <image src="{{item}}" wx:for="{{images}}" wx:key="idx" mode="aspectFill" bindtap="imgYu" data-list="{{images}}" data-src="{{item}}"></image>
+  </view>
+  <view class="image_list">
+    <view wx:for="{{file_name}}" wx:key="index" catchtap="preview" data-urlindex="{{index}}" class="pdf_box">
+      <text class="pdf_name">{{item}}</text>
+      <view style="color:blue;;margin-top:20rpx;font-size:28rpx;text-decoration:underline;" catchtap="fuzhi" data-urlindex="{{index}}" selectable='true'>点击复制下载链接</view>
+    </view>
+    <view>
+      <view style="font-size:28rpx;">下载说明：</view>
+      <view class="shuoming">ios用户复制链接，在Safari浏览器内搜索打开，下载保存到本地；</view>
+      <view class="shuoming">安卓用户复制链接，在系统自带浏览器内搜索打开，下载保存到本地；</view>
+    </view>
   </view>
   <view class="con_bott">
     <input type="text" placeholder="我要提问（限100字）" bindinput="qust" value="{{qust}}"></input>
@@ -12,6 +23,7 @@
   </view>
 </view>
 <view class="xian"></view>
+
 <view class="con_tit" wx:if="{{label.length!=0}}">
   <image src="../../img/wenda.png"></image>
   <text>快速问答</text>
@@ -26,7 +38,7 @@
   <text>Q&A</text>
 </view>
 <view class="quse_list" wx:if="{{wen_da!=''}}">
-  <view class="quse_li" wx:for="{{wen_da}}" wx:key="index">
+  <view class="quse_li" wx:for="{{wen_da}}" wx:key="inx">
     <view class="li_top">
       <text>{{item.question}}</text>
       <view>

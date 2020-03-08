@@ -32,7 +32,7 @@
 		<view>公告</view>
 	</view>
 	<view wx:if="{{account_id!=''&&login_is!=''}}">
-		<swiper class="xinwen" vertical="true" autoplay="true" circular="true" interval="1500" circular="true" skip-hidden-item-layout="true" display-multiple-items="2">
+		<swiper class="xinwen" vertical="true" autoplay="true" circular="true" interval="1500" circular="true" skip-hidden-item-layout="true" display-multiple-items="2" wx:if="{{adv.length>2}}">
 			<block wx:for="{{adv}}" wx:key="index">
 				<swiper-item class="swiper-item" bindtap="xinwen">
 					<view class='da'>
@@ -40,14 +40,22 @@
 						<view class="swiper">{{item.title}}</view>
 					</view>
 				</swiper-item>
-				<swiper-item class="swiper-item" bindtap="xinwen" wx:if="{{adv.length==1}}">
-					<view class='da'>
-						<view class='left'>2</view>
-						<view class="swiper">{{item.title}}</view>
-					</view>
-				</swiper-item>
 			</block>
 		</swiper>
+		<view class="xinwen" wx:if="{{adv.length<=2}}">
+			<view class="swiper-item" bindtap="xinwen" wx:if="{{adv[0]!=null}}">
+				<view class='da'>
+					<view class='left'>{{adv[0].sorts}}</view>
+					<view class="swiper">{{adv[0].title}}</view>
+				</view>
+			</view>
+			<view class="swiper-item" bindtap="xinwen" wx:if="{{adv[1]!=null}}">
+				<view class='da'>
+					<view class='left'>{{adv[1].sorts}}</view>
+					<view class="swiper">{{adv[1].title}}</view>
+				</view>
+			</view>
+		</view>
 	</view>
 	<view class="more" bindtap="more" wx:if="{{account_id!=''&&login_is!=''}}">
 		<view>更多</view>

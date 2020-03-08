@@ -1,12 +1,11 @@
-// pages/more_news/more_news.js
+// pages/pdf/pdf.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    adv:[],
-    content:''
+    url_file:''
   },
 
   /**
@@ -14,9 +13,10 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
-    that.setData({
-      content:options.content
-    })
+    // that.setData({
+    //   url_file:options.url_file
+    // })
+    
   },
 
   /**
@@ -31,27 +31,12 @@ Page({
    */
   onShow: function () {
     var that=this;
-    wx.request({
-      url: getApp().globalData.url + '/api.php/home/index/all_gg_lst',
-      data: {
-        account_id: wx.getStorageSync('account_id'),
-        user_type:that.data.content
-      },
-      success: res => {
-        console.log(res)
-        if (res.data.code == 1) {
-          that.setData({
-            adv:res.data.data.adv
-          })
-        }
-      }
-    });
-  },
-  news_detail:function(e){
-    wx.navigateTo({
-      url: '../news_detail/news_detail?gg_id='+e.currentTarget.dataset.gg_id
+    that.setData({
+      url_file:wx.getStorageSync('urlindex')
     })
+    console.log(wx.getStorageSync('urlindex'))
   },
+
   /**
    * 生命周期函数--监听页面隐藏
    */
